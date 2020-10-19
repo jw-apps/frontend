@@ -1,0 +1,34 @@
+<div class="main-container">
+  <header class="header header-6">
+    <div class="branding">
+      <a routerLink="/" class="nav-link">
+        <clr-icon shape="home"></clr-icon>
+        <span class="title">APP-CENTER</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a routerLink="/" class="active nav-link nav-text">Home</a>
+    </div>
+    <div class="header-actions">
+      <clr-dropdown>
+        <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+          <clr-icon shape="cog"></clr-icon>
+          <clr-icon shape="caret down"></clr-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+          <a routerLink="auth/logout" clrDropdownItem>
+            <clr-icon shape="logout"></clr-icon>
+            <span style="margin-left: 10px">Logout</span>
+          </a>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<lib-error-dialog></lib-error-dialog>

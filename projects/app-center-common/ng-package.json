@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/app-center-common",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@clr/angular": "@clr/angular",
+      "ngx-cookie": "ngx-cookie"
+    }
+  }
+}
