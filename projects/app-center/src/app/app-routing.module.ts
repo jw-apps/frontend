@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthGuard} from 'app-center-common';
-import {LobbyComponent} from './lobby/lobby/lobby.component';
+import { AuthGuard } from 'app-center-common';
 
 const routes: Routes = [
   {
     path: '',
-    component: LobbyComponent,
+    loadChildren: () => import('./lobby/lobby.module').then(m => m.LobbyModule),
     canActivate: [AuthGuard]
   },
   {

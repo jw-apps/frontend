@@ -1,1 +1,18 @@
-<p>lobby works!</p>
+
+<div class="clr-row">
+  <div class="clr-col-9">
+
+  </div>
+  <div class="friends-container clr-col-3">
+    <div class="card">
+      <div class="friends-header card-header">
+        Friends
+      </div>
+      <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+        <div *cdkVirtualFor="let friend of friends" class="card-block friend">
+          {{friend.username}} <clr-icon class="online-status" shape="circle" size="20" [class.is-success]="friend.online" [class.is-solid]="friend.online"></clr-icon>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+</div>

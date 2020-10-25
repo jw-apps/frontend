@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Status, TokenService } from 'app-center-common';
-import { Login, RestAuthService } from '../rest-auth.service';
+import { LoginData, RestAuthService } from '../rest-auth.service';
 
 @Component({
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  user = new Login('', '');
+  user = new LoginData('', '');
   authError = false;
 
   constructor(private restAuthService: RestAuthService, private tokenService: TokenService, private router: Router) {}

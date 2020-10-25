@@ -1,0 +1,17 @@
+.friends-header {
+  background-color: hsl(198, 0%, 80%);
+}
+
+.online-status {
+  position: absolute;
+  right:  20px;
+}
+
+.friend {
+  height: 50px;
+}
+
+.example-viewport {
+  height: 500px;
+}
+

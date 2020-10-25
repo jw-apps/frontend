@@ -10,7 +10,7 @@ export class EnvironmentService {
 
   public url = '';
 
-  public apiUrl = '';
+  public apiUrl = 'apps.johannes-wirth.de/';
 
   public test = true;
 

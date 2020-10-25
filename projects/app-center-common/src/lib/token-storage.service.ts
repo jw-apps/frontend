@@ -19,7 +19,8 @@ export class TokenStorageService {
   }
 
   set(token: string): void {
-    this.cookieService.put(this.cookieName, token, {secure: !this.environmentService.test, httpOnly: true});
+    console.log('saving token ' + token);
+    this.cookieService.put(this.cookieName, token, {secure: !this.environmentService.test, httpOnly: false});
   }
 
   get(): string {

@@ -1,27 +1,31 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Login, RestAuthService } from '../rest-auth.service';
+import { RegisterData, RestAuthService } from '../rest-auth.service';
 import { Status, TokenService } from 'app-center-common';
 
 @Component({
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {
-  user = new Login('', '');
+  user = new RegisterData('', '');
   repeatPassword = '';
-  authError = false;
+  userExists = false;
+  noInvitation = false;
 
   constructor(private restAuthService: RestAuthService, private tokenService: TokenService, private router: Router) {}
 
   public register(): void {
-    this.authError = false;
+    this.userExists = false;
+    this.noInvitation = false;
     this.restAuthService.register(this.user, resp => this.acceptResponse(resp), () => this.register());
   }
 
   private acceptResponse(resp: Status<string>): void {
     if (resp.error) {
-      if (resp.message === 'AUTHENTICATION_ERROR') {
-        this.authError = true;
+      if (resp.message === 'USER_EXISTS') {
+        this.userExists = true;
+      } else if (resp.message === 'INCORRECT_INVITATION') {
+        this.noInvitation = true;
       }
     } else {
       this.tokenService.setToken(resp.value);

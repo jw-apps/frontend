@@ -12,7 +12,9 @@ export class TokenService {
 
   public getToken(): string {
     if (!this.token) {
+      console.log('Loading token from storage');
       this.token = this.tokenStorage.get();
+      console.log(this.token);
     }
     return this.token;
   }
