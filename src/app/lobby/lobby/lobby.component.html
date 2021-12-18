@@ -1,0 +1,101 @@
+
+<div class="row">
+  <div class="col-md-9">
+
+  </div>
+  <div class="friends-container col-md-3">
+
+    <div class="card friends-card" style="width: 22rem;">
+      <div class="card-header">
+        <ul ngbNav #nav="ngbNav" class="nav-tabs">
+          <li ngbNavItem>
+            <a ngbNavLink class="friends-tab-header"><fa-icon icon="user-friends"></fa-icon> Friends</a>
+            <ng-template ngbNavContent>
+              <cdk-virtual-scroll-viewport itemSize="51" class="friend-list">
+                <ul class="list-group list-group-flush">
+                  <li *cdkVirtualFor="let friend of friends" class="list-group-item friend">
+                    <fa-icon [icon]="['far', 'user-circle']"></fa-icon> {{friend.username}} <fa-icon class="online-status" [icon]="onlineIcon(friend)" [styles]="onlineStyle(friend)"></fa-icon>
+                  </li>
+                  <li class="list-group-item"></li>
+                </ul>
+              </cdk-virtual-scroll-viewport>
+            </ng-template>
+          </li>
+          <li ngbNavItem>
+            <a ngbNavLink class="friends-tab-header"><fa-icon icon="user-plus"></fa-icon> Add Friend</a>
+            <ng-template ngbNavContent>
+              <ul class="list-group list-group-flush add-invite">
+                <li class="list-group-item add-friend">
+                  Add Friend
+                </li>
+                <li class="list-group-item invite-friend">
+                  Invite Friend
+                </li>
+                <li class="list-group-item">
+                </li>
+              </ul>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div [ngbNavOutlet]="nav"></div>
+    </div>
+
+    <!--<mat-card class="friends-card">
+      <mat-card-header>
+        <mat-card-title><mat-icon>people</mat-icon> Friends</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <cdk-virtual-scroll-viewport itemSize="51" class="friend-list">
+          <div *cdkVirtualFor="let friend of friends" class="friend">
+            {{friend.username}} <clr-icon class="online-status" shape="circle" size="20" [class.is-success]="friend.online" [class.is-solid]="friend.online"></clr-icon>
+          </div>
+          <mat-divider></mat-divider>
+        </cdk-virtual-scroll-viewport>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="card">
+      <div class="friends-header card-header">
+        Friends <clr-icon shape="user"></clr-icon>
+      </div>
+      <div class="card-block">
+        <span class="signpost-item">
+          <span class="trigger-item">
+            <clr-signpost>
+              <button class="btn btn-link" clrSignpostTrigger>
+                <clr-icon shape="plus-circle"></clr-icon> Add Friend
+              </button>
+              <clr-signpost-content [clrPosition]="'bottom-middle'" *clrIfOpen>
+                <clr-combobox-container>
+                  <label>Search Username</label>
+                  <clr-combobox [(ngModel)]="addFriendSelection" name="myState" required>
+                    <clr-options>
+                      <clr-option *clrOptionItems="let state of friendSelector; field:'name'" [clrValue]="state">
+                        <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
+                        <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
+                      </clr-option>
+                    </clr-options>
+                  </clr-combobox>
+                  <clr-control-helper>Helper text</clr-control-helper>
+                  <clr-control-error>There was an error</clr-control-error>
+                </clr-combobox-container>
+              </clr-signpost-content>
+            </clr-signpost>
+          </span>
+        </span>
+
+        <button class="btn btn-outline">
+          <clr-icon shape="share"></clr-icon> Create Invitation
+        </button>
+      </div>
+      <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport card-block">
+        <div *cdkVirtualFor="let friend of friends" class="card-block friend">
+          {{friend.username}} <clr-icon class="online-status" shape="circle" size="20" [class.is-success]="friend.online" [class.is-solid]="friend.online"></clr-icon>
+        </div>
+        <div class="card-block"></div>
+      </cdk-virtual-scroll-viewport>
+    </div>-->
+  </div>
+</div>

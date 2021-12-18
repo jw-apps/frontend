@@ -1,0 +1,45 @@
+<!--<div class="login-wrapper">
+  <form class="login" clrForm>
+    <section class="title">
+      <h3 class="welcome">Welcome to</h3>
+      APP-CENTER
+      <h5 class="hint">Create a new account</h5>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">Username</label>
+        <input type="text" name="username" clrInput placeholder="Username" [(ngModel)]="user.username" required/>
+        <clr-control-error>This field is required!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-sr-only">E-Mail</label>
+        <input type="text" name="email" clrInput placeholder="E-Mail (optional)" [(ngModel)]="user.email"/>
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Password</label>
+        <input type="password" name="password" clrPassword placeholder="Password" [(ngModel)]="user.password" matchValue="repeatPassword" reverse="true" required/>
+        <clr-control-error>This field is required!</clr-control-error>
+      </clr-password-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Repeat Password</label>
+        <input type="password" name="repeatPassword" #repeatPasswordInput="ngModel" clrPassword placeholder="Password" [(ngModel)]="repeatPassword" matchValue="password" required/>
+        <clr-control-error>This field is required!</clr-control-error>
+      </clr-password-container>
+      <clr-input-container>
+        <label class="clr-sr-only">Invitation</label>
+        <input type="text" name="invitation" clrInput placeholder="Invitation" [(ngModel)]="user.invitation"/>
+      </clr-input-container>
+      <div *ngIf="userExists" class="error active">
+        Username is already taken
+      </div>
+      <div *ngIf="noInvitation" class="error active">
+        You need an invitation code to register
+      </div>
+      <div *ngIf="repeatPasswordInput.touched && repeatPasswordInput.invalid" class="error active">
+        Passwords do not match
+      </div>
+      <button (click)="register()" type="submit" class="btn btn-primary" [disabled]="repeatPasswordInput.invalid || !allFilled()">Sign Up</button>
+      <a routerLink="/auth/login" class="signup">Sign in</a>
+    </div>
+  </form>
+</div>-->

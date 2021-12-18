@@ -1,0 +1,32 @@
+<!--<clr-modal [(clrModalOpen)]="open">
+  <h3 class="modal-title">Error</h3>
+  <div *ngIf="error" class="modal-body">
+    <div [ngSwitch]="error.message">
+      <span *ngSwitchCase="'TimeoutError'">Server not responding. Please check your internet connection.</span>
+      <span *ngSwitchCase="'UNKNOWN_GAME'">This game does not exist!</span>
+      <span *ngSwitchCase="'MOVE_NOT_ALLOWED'">This move is not allowed!</span>
+      <span *ngSwitchDefault>Unexpected error: {{error.message}}</span>
+    </div>
+  </div>
+  <div *ngIf="error" class="modal-footer">
+    <div>
+      <button type="button" class="btn btn-primary" (click)="reload()">
+        <div [ngSwitch]="error.message">
+          <span *ngSwitchCase="'TimeoutError'">Retry</span>
+          <span *ngSwitchCase="'UNKNOWN_GAME'">Back to Overview</span>
+          <span *ngSwitchCase="'MOVE_NOT_ALLOWED'">Undo</span>
+          <span *ngSwitchDefault>Back to Overview</span>
+        </div>
+      </button>
+      <button type="button" class="btn btn-outline" (click)="dismiss()">Back to Overview</button>
+    </div>
+    <div *ngIf="error.critical; else notCritical">
+      <button type="button" class="btn btn-primary" (click)="reload()">Retry</button>
+      <button type="button" class="btn btn-outline" (click)="dismiss()">Back to Overview</button>
+    </div>
+    <ng-template #notCritical>
+      <button type="button" class="btn btn-primary" (click)="dismiss()">Dismiss</button>
+    </ng-template>
+  </div>
+</clr-modal>-->
+

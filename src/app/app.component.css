@@ -1,0 +1,12 @@
+.container-fluid {
+  padding-top: 1rem !important;
+}
+
+.options-toggle {
+  font-size: 25px;
+  color: #fff !important;
+}
+
+.options-toggle fa-icon {
+  color: #fff;
+}

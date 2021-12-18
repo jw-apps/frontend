@@ -1,0 +1,26 @@
+.friends-header {
+  background-color: hsl(198, 0%, 80%);
+}
+
+.online-status {
+  position: absolute;
+  right:  20px;
+}
+
+.friend {
+  height: 50px;
+  font-size: 20px;
+}
+
+.friend-list, .add-invite {
+  height: 500px;
+}
+
+.invite-friend, .add-friend {
+  height: 200px;
+}
+
+.friends-tab-header {
+  font-size: 20px;
+}
+
