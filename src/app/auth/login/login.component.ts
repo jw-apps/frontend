@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginData, RestAuthService } from '../rest-auth.service';
 import {TokenService} from '../../core/token.service';
 import {Status} from '../../core/rest-helper.service';
+import {LoginData, RestAuthService} from '../../core/rest-auth.service';
 
 @Component({
   templateUrl: './login.component.html',

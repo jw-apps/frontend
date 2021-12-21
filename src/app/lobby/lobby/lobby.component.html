@@ -21,81 +21,20 @@
               </cdk-virtual-scroll-viewport>
             </ng-template>
           </li>
-          <li ngbNavItem>
-            <a ngbNavLink class="friends-tab-header"><fa-icon icon="user-plus"></fa-icon> Add Friend</a>
-            <ng-template ngbNavContent>
-              <ul class="list-group list-group-flush add-invite">
-                <li class="list-group-item add-friend">
-                  Add Friend
-                </li>
-                <li class="list-group-item invite-friend">
-                  Invite Friend
-                </li>
-                <li class="list-group-item">
-                </li>
-              </ul>
-            </ng-template>
+          <li ngbDropdown class="nav-item">
+            <a href (click)="false" class="nav-link friends-tab-header" ngbDropdownToggle><fa-icon icon="user-plus"></fa-icon> Add Friend</a>
+            <div ngbDropdownMenu>
+              <form class="px-4 py-3">
+                <div class="form-group">
+                  <label for="findUser">Username</label>
+                  <input id="findUser" type="text" id="typeahead-prevent-manual-entry" class="form-control" name="findUser" [(ngModel)]="friendToAdd" [ngbTypeahead]="search" [editable]="false" #findUserModel="ngModel"/>
+                </div>
+              </form>
+            </div>
           </li>
         </ul>
       </div>
       <div [ngbNavOutlet]="nav"></div>
     </div>
-
-    <!--<mat-card class="friends-card">
-      <mat-card-header>
-        <mat-card-title><mat-icon>people</mat-icon> Friends</mat-card-title>
-      </mat-card-header>
-      <mat-divider></mat-divider>
-      <mat-card-content>
-        <cdk-virtual-scroll-viewport itemSize="51" class="friend-list">
-          <div *cdkVirtualFor="let friend of friends" class="friend">
-            {{friend.username}} <clr-icon class="online-status" shape="circle" size="20" [class.is-success]="friend.online" [class.is-solid]="friend.online"></clr-icon>
-          </div>
-          <mat-divider></mat-divider>
-        </cdk-virtual-scroll-viewport>
-      </mat-card-content>
-    </mat-card>
-
-    <div class="card">
-      <div class="friends-header card-header">
-        Friends <clr-icon shape="user"></clr-icon>
-      </div>
-      <div class="card-block">
-        <span class="signpost-item">
-          <span class="trigger-item">
-            <clr-signpost>
-              <button class="btn btn-link" clrSignpostTrigger>
-                <clr-icon shape="plus-circle"></clr-icon> Add Friend
-              </button>
-              <clr-signpost-content [clrPosition]="'bottom-middle'" *clrIfOpen>
-                <clr-combobox-container>
-                  <label>Search Username</label>
-                  <clr-combobox [(ngModel)]="addFriendSelection" name="myState" required>
-                    <clr-options>
-                      <clr-option *clrOptionItems="let state of friendSelector; field:'name'" [clrValue]="state">
-                        <clr-icon shape="world" role="img" aria-label="World is turning"></clr-icon> {{state.name}}
-                        <clr-icon shape="sun" role="img" aria-label="Sun is shining"></clr-icon>
-                      </clr-option>
-                    </clr-options>
-                  </clr-combobox>
-                  <clr-control-helper>Helper text</clr-control-helper>
-                  <clr-control-error>There was an error</clr-control-error>
-                </clr-combobox-container>
-              </clr-signpost-content>
-            </clr-signpost>
-          </span>
-        </span>
-
-        <button class="btn btn-outline">
-          <clr-icon shape="share"></clr-icon> Create Invitation
-        </button>
-      </div>
-      <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport card-block">
-        <div *cdkVirtualFor="let friend of friends" class="card-block friend">
-          {{friend.username}} <clr-icon class="online-status" shape="circle" size="20" [class.is-success]="friend.online" [class.is-solid]="friend.online"></clr-icon>
-        </div>
-        <div class="card-block"></div>
-      </cdk-virtual-scroll-viewport>
-    </div>-->
   </div>
 </div>

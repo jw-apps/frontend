@@ -5,7 +5,7 @@ import { LobbyRoutingModule } from './lobby-routing.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule, NgbNavModule, NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -17,7 +17,9 @@ import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
     ScrollingModule,
     FormsModule,
     FontAwesomeModule,
-    NgbNavModule
+    NgbNavModule,
+    NgbTypeaheadModule,
+    NgbDropdownModule
   ]
 })
 export class LobbyModule { }

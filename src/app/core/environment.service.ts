@@ -12,7 +12,7 @@ export class EnvironmentService {
 
   public apiUrl = 'apps.johannes-wirth.de/';
 
-  public test = true;
+  public test = false;
 
   constructor() {
   }

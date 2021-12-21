@@ -30,7 +30,8 @@ RUN npm run build
 FROM httpd:alpine
 
 # copy artifact build from the 'build environment'
-COPY --from=build /app/dist /usr/local/apache2/htdocs/
+COPY --from=build /app/dist/frontend /usr/local/apache2/htdocs/
+COPY .htaccess /usr/local/apache2/htdocs/
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 # expose port 80
 EXPOSE 80

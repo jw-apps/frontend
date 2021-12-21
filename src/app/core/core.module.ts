@@ -7,6 +7,7 @@ import {RestHelperService} from './rest-helper.service';
 import {TokenService} from './token.service';
 import {TokenStorageService} from './token-storage.service';
 import {WebsocketService} from './websocket.service';
+import {RestAuthService} from './rest-auth.service';
 
 
 
@@ -22,7 +23,8 @@ import {WebsocketService} from './websocket.service';
     RestHelperService,
     TokenService,
     TokenStorageService,
-    WebsocketService
+    WebsocketService,
+    RestAuthService
   ]
 })
 export class CoreModule { }

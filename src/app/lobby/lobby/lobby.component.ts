@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import {Friend} from '../rest-friends.service';
 import {IconProp, Styles} from '@fortawesome/fontawesome-svg-core';
+import {Observable, of, OperatorFunction} from 'rxjs';
+import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
+import {RestFriendsService, Friend} from '../../core/rest-friends.service';
 
 @Component({
   selector: 'app-lobby',
@@ -13,7 +15,11 @@ export class LobbyComponent {
   addFriendSelection;
   friendSelector: ['UnknownDeaster', 'Väänsään'];
 
-  constructor() { }
+  friendToAdd: string;
+  searching = false;
+  searchFailed = false;
+
+  constructor(private rest: RestFriendsService) { }
 
   onlineIcon(friend: Friend): IconProp {
     if (friend.online) { return ['fas', 'circle']; }
@@ -24,5 +30,21 @@ export class LobbyComponent {
     if (friend.online) { return {color: 'green'}; }
     else { return {}; }
   }
+
+  search: OperatorFunction<string, readonly {string}[]> = (text$: Observable<string>) => text$.pipe(
+    debounceTime(300),
+    distinctUntilChanged(),
+    tap(() => this.searching = true),
+    switchMap(term =>
+      this.rest.findUsers(term).pipe(
+        tap(() => this.searchFailed = false),
+        catchError(() => {
+          this.searchFailed = true;
+          return of([]);
+        })
+      )
+    ),
+    tap(() => this.searching = false)
+  )
 
 }
